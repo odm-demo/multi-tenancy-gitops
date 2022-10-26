@@ -8,6 +8,7 @@ metadata:
 spec:
   sourceRepos: [] # Populated by kustomize patches in 2-services/kustomization.yaml
   destinations:
+  - namespace: tools
     server: https://kubernetes.default.svc
   - namespace: db2
     server: https://kubernetes.default.svc
@@ -23,6 +24,7 @@ spec:
     server: https://kubernetes.default.svc
   - namespace: kube-system
     server: https://kubernetes.default.svc
+
   clusterResourceWhitelist:
   # TODO: SCC needs to be moved to 1-infra, here for now for artifactory
   - group: "security.openshift.io"
