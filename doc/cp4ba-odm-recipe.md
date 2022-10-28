@@ -40,19 +40,18 @@ This recipe is for deploying the Operational Desision Manager in a single namesp
     - multi-tenancy-gitops-services/instances/ibm-cp4ba-db2u-setup/setup-script.yaml
     - multi-tenancy-gitops-services/instances/ibm-cp4ba-icp4acluster/odm/odm-db-secret.yaml
 
-1. Modify the console link properties with the proper CloudPak for Business Automation link in the `multi-tenancy-gitops-services` repository:
+1. Modify the console link properties with the proper CloudPak for Business Automation link in the `multi-tenancy-gitops-services` repository, make sure your *`logged in into your cluster`*:
 
     ```bash
-    oc login ...
-    cd multi-tenancy-gitops-servicces/instances/ibm-cp4ba-icp4acluster-postdeploy
-    cd post-deploy
-    NAMESPACE=cp4ba ./console.sh
-    git add .
-    git commit -m "console link"
-    git push
+    cd multi-tenancy-gitops-servicces/instances/ibm-cp4ba-icp4acluster-postdeploy/post-deploy
     ```
+    ```
+    NAMESPACE=cp4ba ./console.sh
+    ```
+    >  💡 **NOTE**  
+    >  ***You should see `5` changes, make sure to `add`, `commit` & `push` the changes into git.***
 
-1. Edit the Services layer `${GITOPS_PROFILE}/2-services/kustomization.yaml` and install Sealed Secrets, db2 operator, db2 instance, openldap & CPBA operator  by uncommenting the following lines: 
+1. Edit the Services layer `${GITOPS_PROFILE}/2-services/kustomization.yaml` and install db2 operator, db2 instance, openldap & CP4BA operator  by uncommenting the following lines: 
    
     ```yaml
     ## IBM DB2 operator & instance, Ldap
@@ -65,8 +64,8 @@ This recipe is for deploying the Operational Desision Manager in a single namesp
     - argocd/instances/ibm-cp4ba-icp4acluster.yaml
     - argocd/instances/ibm-cp4ba-icp4acluster-postdeploy.yaml 
     ```
-
-    The overall process took around 2 hours
+  >  💡 **NOTE**  
+  > ***The overall process took around 2 hours***
 
 ### Assign the Operational Decision Manager roles to the `cpadmin` user
 You will need to grant your users various access roles, depending on their needs. You manage permissions using the `Administration` -> `Access control page` in the `Cloud pak dashboard`.
@@ -102,7 +101,7 @@ You will need to grant your users various access roles, depending on their needs
     ```bash
     oc get icp4acluster icp4adeploy -n cp4ba -o jsonpath="{.status}{'\n'}" | jq
     ```
-1. Access The URLs can be found in the `icp4adploy-cp4a-access-info` configmap in the `cp4ba` namespace. Look for the section called `odm-access-info`, which will contain content similar to this:
+1. Access The URLs can be found in the `icp4adploy-cp4ba-access-info` configmap in the `cp4ba` namespace. Look for the section called `odm-access-info`, which will contain content similar to this:
     ```yaml
     CloudPak dashboard: https://cpd-$NAMESPACE.$INGRESS_DOMAIN
     ODM Decision Center URL: https://cpd-$NAMESPACE.$INGRESS_DOMAIN/odm/decisioncenter
