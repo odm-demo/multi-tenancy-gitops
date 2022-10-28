@@ -1,11 +1,11 @@
 resources:
-# - argocd/consolenotification.yaml
-# - argocd/namespace-ibm-common-services.yaml
-# - argocd/namespace-db2.yaml
-# - argocd/namespace-cp4ba.yaml
-# - argocd/namespace-openldap.yaml
-# - argocd/norootsquash.yaml
-# - argocd/daemonset-sync-global-pullsecret.yaml
+- argocd/consolenotification.yaml
+- argocd/namespace-ibm-common-services.yaml
+- argocd/namespace-db2.yaml
+- argocd/namespace-cp4ba.yaml
+- argocd/namespace-openldap.yaml
+- argocd/norootsquash.yaml
+- argocd/daemonset-sync-global-pullsecret.yaml
 
 patches:
 - target:
