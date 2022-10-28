@@ -1,4 +1,7 @@
 resources:
+- argocd/operators/ibm-cp4a-db2.yaml
+- argocd/instances/ibm-cp4a-db2ucluster.yaml
+- argocd/instances/ibm-cp4a-openldap-odm.yaml
 # Db2 Operator & instance
 # - argocd/operators/ibm-cp4a-db2.yaml
 # - argocd/instances/ibm-cp4a-db2ucluster.yaml
