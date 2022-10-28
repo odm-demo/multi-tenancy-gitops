@@ -9,6 +9,7 @@ resources:
 - argocd/namespace-odm.yaml
 - argocd/namespace-openldap.yaml
 - argocd/namespace-kube-system.yaml
+- argocd/odm-norootsquash.yaml
 
 patches:
 - target:
