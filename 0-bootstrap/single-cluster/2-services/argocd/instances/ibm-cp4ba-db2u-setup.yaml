@@ -1,9 +1,9 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: ibm-db2-operator
+  name: ibm-cp4ba-db2u-setup
   annotations:
-    argocd.argoproj.io/sync-wave: "225"
+    argocd.argoproj.io/sync-wave: "250"
   labels:
     gitops.tier.group: db2
     gitops.tier.layer: services
@@ -13,13 +13,17 @@ metadata:
 spec:
   destination:
     namespace: db2
-    server: https://kubernetes.default.svc
+    server: 'https://kubernetes.default.svc'
   project: services
   source:
-    repoURL: "" # Populated by kustomize patches in 2-services/kustomization.yaml
-    targetRevision: "" # Populated by kustomize patches in 2-services/kustomization.yaml
-    path: operators/ibm-cp4a-db2
+    path: instances/ibm-cp4ba-db2u-setup
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
+  ignoreDifferences:
+  - group: ""
+    kind: ServiceAccount
+    jsonPointers:
+    - /imagePullSecrets
+    - /secrets
