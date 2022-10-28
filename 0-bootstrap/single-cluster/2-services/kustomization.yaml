@@ -1,10 +1,12 @@
 resources:
-# - argocd/operators/ibm-cp4a-db2.yaml
-# - argocd/instances/ibm-cp4a-db2ucluster.yaml
-# - argocd/instances/ibm-cp4a-openldap-odm.yaml
-# CP4A operator & Odm instance
-# - argocd/operators/ibm-cp4a-odm-operator.yaml
-# - argocd/instances/ibm-cp4a-icp4acluster.yaml
+# IBM CP4BA & ODM Instance
+#- argocd/operators/ibm-cp4ba-db2.yaml
+#- argocd/instances/ibm-cp4ba-db2ucluster.yaml
+#- argocd/instances/ibm-cp4ba-db2u-setup.yaml 
+#- argocd/instances/ibm-cp4ba-openldap-odm.yaml
+#- argocd/operators/ibm-cp4ba-operator.yaml
+#- argocd/instances/ibm-cp4ba-icp4acluster.yaml
+#- argocd/instances/ibm-cp4ba-icp4acluster-postdeploy.yaml
 
 patches:
 - target:
