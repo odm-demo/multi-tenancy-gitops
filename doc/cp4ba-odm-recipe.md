@@ -27,8 +27,8 @@ This recipe is for deploying the Operational Desision Manager in a single namesp
 
     | Component | Access Mode | IBM Cloud | OCS/ODF |
     | --- | --- | --- | --- |
-    | DB2 | RWX | ibmc-file-gold-gid | ocs-storagecluster-cephfs |
-    | ODM | RWX | ibmc-file-gold-gid | ocs-storagecluster-cephfs |
+    | DB2 | RWX | ibmc-file-gold-gid-gid | ocs-storagecluster-cephfs |
+    | ODM | RWX | ibmc-file-gold-gid-gid | ocs-storagecluster-cephfs |
 
     Changing the storage classes is performed in:
     - multi-tenancy-gitops-services/instances/ibm-icp4acluster/odm/odm-deploy.yaml
